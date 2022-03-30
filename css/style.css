@@ -58,11 +58,13 @@ header h3 {
 .mainPlate {
     margin-top: 31px;
     margin-left: 19px;
+    overflow: hidden;
 }
 
 .mainPlate2, .mainPlate3 {
     margin-top: 27px;
     margin-left: 19px;
+    overflow: hidden;
 }
 
 .mainPlate3 {
