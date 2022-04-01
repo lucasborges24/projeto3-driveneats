@@ -71,10 +71,13 @@ section:nth-child(4){
     overflow-y: hidden;
 }
 
-.content {
+.content,
+.content-plate,
+.content-drink,
+.content-dessert {
     width: 172px;
     height: 216px;
-    padding: 18px 14px 13px;
+    padding: 16px 12px 11px;
     margin-right: 16px;
     border-radius: 9px;
     box-shadow: 0px 0px 10px -4px rgba(0, 0, 0, 0.25);
@@ -82,19 +85,20 @@ section:nth-child(4){
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    
-
+    cursor: pointer;
+    border: 4px solid white;
     position: relative; 
 }
 
-.contentjs {
-    border: 3px solid #32B72F;
-    padding: 16px 14px 11px;
-    /* width: 176px;
-    height: 220px; */
+.contentjs-plate,
+.contentjs-drink,
+.contentjs-dessert {
+    border-color: #32B72F;
 }
 
-.content img:last-child {
+.content-plate img:last-child,
+.content-drink img:last-child,
+.content-dessert img:last-child {
     position: absolute;
     top: 150px; right: 10px;
     width: 15px;
@@ -115,11 +119,17 @@ section:nth-child(4){
     margin-bottom: 17px;    
 }
 
+.content-plate img,
+.content-drink img,
+.content-dessert img,
 .content img {
     width: 144px;
     height: 87px;
 }
 
+.content-plate h3,
+.content-drink h3,
+.content-dessert h3,
 .content h3 {
     font-weight: 700;
     font-size: 16px;
@@ -127,14 +137,18 @@ section:nth-child(4){
     color: #333333;
 }
 
-.content h4 {
+.content-plate h4,
+.content-drink h4,
+.content-dessert h4{
     color: #A6A6A6;
     font-weight: 300;
     font-size: 15px;
     line-height: 18px;
 }
 
-.content h5 {
+.content-plate h5,
+.content-drink h5,
+.content-dessert h5 {
     font-weight: 400;
     font-size: 16px;
     line-height: 19px;
@@ -180,4 +194,8 @@ footer h3 {
     overflow-wrap: break-word;  
     word-wrap: break-word; 
     word-break: break-word;
+}
+
+.green {
+    background-color: green;
 }
