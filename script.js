@@ -1,6 +1,10 @@
 let b = 0;
 let c = 0;
 let d = 0;
+let plate;
+let drink;
+let dessert;
+let total;
 
 function borderPlate(element) {
     
@@ -101,13 +105,13 @@ function confirmOrder() {
         document.querySelector(".body-confirm").classList.remove("show")
         document.querySelector(".confirm").classList.remove("show")
 
-        let plate = document.querySelector(".contents .contentjs-plate h3").innerHTML
+        plate = document.querySelector(".contents .contentjs-plate h3").innerHTML
         let platePrice = document.querySelector(".contents .contentjs-plate h5").innerHTML
 
-        let drink = document.querySelector(".contents .contentjs-drink h3").innerHTML
+        drink = document.querySelector(".contents .contentjs-drink h3").innerHTML
         let drinkPrice = document.querySelector(".contents .contentjs-drink h5").innerHTML
 
-        let dessert = document.querySelector(".contents .contentjs-dessert h3").innerHTML
+        dessert = document.querySelector(".contents .contentjs-dessert h3").innerHTML
         let dessertPrice = document.querySelector(".contents .contentjs-dessert h5").innerHTML
 
         document.querySelector(".order1 h4:first-child").innerHTML = plate
@@ -120,7 +124,7 @@ function confirmOrder() {
         document.querySelector(".order3 h4:last-child").innerHTML = dessertPrice
 
 
-        let total = (Number(platePrice.split(" ")[1].replace(",",".")) + Number(drinkPrice.split(" ")[1].replace(",",".")) + Number(dessertPrice.split(" ")[1].replace(",","."))).toFixed(2)
+        total = (Number(platePrice.split(" ")[1].replace(",",".")) + Number(drinkPrice.split(" ")[1].replace(",",".")) + Number(dessertPrice.split(" ")[1].replace(",","."))).toFixed(2)
 
         console.log(total)
         
@@ -131,6 +135,18 @@ function confirmOrder() {
 function back() {
     document.querySelector(".body-confirm").classList.add("show")
     document.querySelector(".confirm").classList.add("show")
+}
+
+function whatsApp() {
+    let totalVirgula = total.toString().replace(".",",")
+    let message = `Olá, gostaria de fazer o *pedido*:\n- *Prato*: ${plate}\n- *Bebida*: ${drink}\n- *Sobremesa*: ${dessert}\n*Total*: R$ ${totalVirgula}`
+
+    let encode = encodeURIComponent(message)
+    const link = `https://wa.me/+5562981894915?text=${encode}`
+    console.log(encode)
+
+
+    window.open(link, '_blank')
 }
 
 
