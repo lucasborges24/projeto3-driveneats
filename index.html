@@ -18,13 +18,40 @@
 
 <body>
 
+
     <!-- header -->
     <header>
         <h1>DrivenEats</h1>
         <h3>Sua comida em 6 minutos</h3>
+
     </header>
     <!-- header -->
+    <div class="sticy">
+        <div class="confirm  ">
+            <h3>Confirme seu pedido</h3>
+            <div class="order1">
+                <h4></h4>
+                <h4></h4>
+            </div>
+            <div class="order2">
+                <h4>teste</h4>
+                <h4>14,90</h4>
+            </div>
+            <div class="order3">
+                <h4>teste</h4>
+                <h4>14,90</h4>
+            </div>
+            <div class="order-total">
+                <h4>TOTAL</h4>
+                <h4></h4>
+            </div>
 
+            <div class="tudocerto cursor">
+                <h3>Tudo certo, pode pedir!</h3>
+            </div>
+            <h3 class="cursor" onclick="back()">Cancelar</h3>
+        </div>
+    </div>
     <!-- main content -->
 
     <section class="mainPlate">
@@ -93,7 +120,7 @@
                 <img src="/images/coquinha_gelada 1.svg" alt="frango">
                 <h3>Coquinha gelada</h3>
                 <h4>Lata 350ml</h4>
-                <h5>R$ 4,90</h5>
+                <h5>R$ 6,90</h5>
                 <img src="/images/Vector.svg">
             </div>
             <div class="content-drink none" onclick="borderDrink(this)">
@@ -165,10 +192,14 @@
     <!-- main content -->
 
     <footer>
-        <div class="finish">
+        <div class="finish" onclick="confirmOrder()">
             <h3>Selecione os 3 itens para fechar o pedido</h3>
         </div>
     </footer>
+
+    
+    <div class="body-confirm show"></div>
+
 
 
 
