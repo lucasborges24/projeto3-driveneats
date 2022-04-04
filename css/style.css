@@ -83,9 +83,12 @@ section:nth-child(5){
     overflow-y: hidden;
 }
 
+
 .contents::-webkit-scrollbar {
-    display: none;
-  }
+        display: none;
+      }
+
+
 
 .content,
 .content-plate,

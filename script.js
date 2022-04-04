@@ -1,3 +1,4 @@
+// Global Variables
 let b = 0;
 let c = 0;
 let d = 0;
@@ -8,27 +9,20 @@ let total;
 let nameOrder;
 let address;
 
+// Functions to select items
 function borderPlate(element) {
     b = Number(0);
     desabilitarPlate(element);
-    
     element.classList.toggle("contentjs-plate");
     element.classList.toggle("none")
-    console.log(b)
 
+    // If the plate is selected, save this. 
     let a = document.querySelector(".contents .contentjs-plate")
     if (a !== null) {
         b = Number(1);
-        console.log(b)
     }
-
     finishButton();
-
-    
-
 }
-
-
 
 function desabilitarPlate(element) {
     const content = document.querySelector(".contents .contentjs-plate")
@@ -41,19 +35,14 @@ function desabilitarPlate(element) {
 function borderDrink(element) {
     c = Number(0);
     desabilitarDrink(element);
-
     element.classList.toggle("contentjs-drink");
     element.classList.toggle("none")
-    console.log(c)
 
     let a = document.querySelector(".contents .contentjs-drink")
     if (a !== null) {
-        console.log(a)
         c = Number(1);
     }
-
     finishButton();
-
 }
 
 function desabilitarDrink(element) {
@@ -67,19 +56,14 @@ function desabilitarDrink(element) {
 function borderDessert(element) {
     d = Number(0);
     desabilitarDessert(element);
-
-    console.log(d)
     element.classList.toggle("contentjs-dessert");
     element.classList.toggle("none")
 
     let a = document.querySelector(".contents .contentjs-dessert")
     if (a !== null) {
-        console.log(a)
         d = Number(1);
     }
-
     finishButton();
-    
 }
 
 function desabilitarDessert(element) {
@@ -132,8 +116,6 @@ function confirmOrder() {
 
         total = (Number(platePrice.split(" ")[1].replace(",", ".")) + Number(drinkPrice.split(" ")[1].replace(",", ".")) + Number(dessertPrice.split(" ")[1].replace(",", "."))).toFixed(2)
 
-        console.log(total)
-
         document.querySelector(".order-total h4:last-child").innerHTML = `R$ ${total.toString().replace(".", ",")}`
 
         nameOrder = prompt('Coloque seu nome: ')
@@ -147,20 +129,12 @@ function back() {
 }
 
 function whatsApp() {
-    let totalVirgula = total.toString().replace(".", ",")
-
-
-
     let message = `Olá, gostaria de fazer o pedido:\n- Prato: ${plate}\n- Bebida: ${drink}\n- Sobremesa: ${dessert}\nTotal: R$ ${total}\n\nNome: ${nameOrder}\nEndereço: ${address}`
-
-
     let encode = encodeURIComponent(message)
     const link = `https://wa.me/+5562999267474?text=${encode}`
-    console.log(encode)
-
-
     window.open(link, '_blank')
 }
+
 
 
 
