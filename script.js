@@ -9,95 +9,99 @@ let nameOrder;
 let address;
 
 function borderPlate(element) {
-
-    desabilitarPlate();
-
-
-    let a = document.querySelector(".content-plate").classList.contains("none")
-    if (a === true) {
-        console.log(a)
-        b = Number(1);
-    }
-
-    if ((b + c + d >= 3) === true) {
-        let finish = document.querySelector(".finish")
-        finish.classList.add("green")
-        document.querySelector("footer h3").innerHTML = "Finalizar Pedido"
-    }
-
-    element.classList.add("contentjs-plate");
-    element.classList.remove("none")
+    b = Number(0);
+    desabilitarPlate(element);
+    
+    element.classList.toggle("contentjs-plate");
+    element.classList.toggle("none")
     console.log(b)
+
+    let a = document.querySelector(".contents .contentjs-plate")
+    if (a !== null) {
+        b = Number(1);
+        console.log(b)
+    }
+
+    finishButton();
+
+    
 
 }
 
 
 
-function desabilitarPlate() {
-    const content = document.querySelector(".contentjs-plate")
-    if (content !== null) {
+function desabilitarPlate(element) {
+    const content = document.querySelector(".contents .contentjs-plate")
+    if (content !== null && element.classList.contains("contentjs-plate") == false) {
         content.classList.remove("contentjs-plate")
         content.classList.add("none")
     }
 }
 
 function borderDrink(element) {
-    desabilitarDrink();
+    c = Number(0);
+    desabilitarDrink(element);
 
-    let a = document.querySelector(".content-drink").classList.contains("none")
-    if (a === true) {
+    element.classList.toggle("contentjs-drink");
+    element.classList.toggle("none")
+    console.log(c)
+
+    let a = document.querySelector(".contents .contentjs-drink")
+    if (a !== null) {
         console.log(a)
         c = Number(1);
     }
 
-    if ((b + c + d >= 3) === true) {
-        let finish = document.querySelector(".finish")
-        finish.classList.add("green")
-        document.querySelector("footer h3").innerHTML = "Finalizar Pedido"
-    }
-
-    element.classList.add("contentjs-drink");
-    element.classList.remove("none")
-    console.log(c)
-
+    finishButton();
 
 }
 
-function desabilitarDrink() {
+function desabilitarDrink(element) {
     const content = document.querySelector(".contentjs-drink")
-    if (content !== null) {
+    if (content !== null && element.classList.contains("contentjs-drink") == false) {
         content.classList.remove("contentjs-drink")
         content.classList.add("none")
     }
 }
 
 function borderDessert(element) {
-    desabilitarDessert();
+    d = Number(0);
+    desabilitarDessert(element);
 
-    let a = document.querySelector(".content-dessert").classList.contains("none")
-    if (a === true) {
+    console.log(d)
+    element.classList.toggle("contentjs-dessert");
+    element.classList.toggle("none")
+
+    let a = document.querySelector(".contents .contentjs-dessert")
+    if (a !== null) {
         console.log(a)
         d = Number(1);
     }
 
+    finishButton();
+    
+}
+
+function desabilitarDessert(element) {
+    const content = document.querySelector(".contentjs-dessert")
+    if (content !== null && element.classList.contains("contentjs-dessert") == false) {
+        content.classList.remove("contentjs-dessert")
+        content.classList.add("none")
+    }
+}
+
+function finishButton() {
     if ((b + c + d >= 3) === true) {
         let finish = document.querySelector(".finish")
         finish.classList.add("green")
+        finish.classList.add("transition")
         document.querySelector("footer h3").innerHTML = "Finalizar Pedido"
+        document.querySelector("footer h3").classList.add("transition")
     }
-
-    console.log(d)
-    element.classList.add("contentjs-dessert");
-    element.classList.remove("none")
-
-
-}
-
-function desabilitarDessert() {
-    const content = document.querySelector(".contentjs-dessert")
-    if (content !== null) {
-        content.classList.remove("contentjs-dessert")
-        content.classList.add("none")
+    else {
+        document.querySelector(".finish").classList.remove("green")
+        document.querySelector("footer h3").classList.add("transition")
+        document.querySelector("footer h3").innerHTML = "Selecione os 3 itens para fechar o pedido"
     }
 }
 
@@ -147,7 +151,7 @@ function whatsApp() {
 
 
 
-    let message = `Olá, gostaria de fazer o *pedido*:\n- *Prato*: ${plate}\n- *Bebida*: ${drink}\n- *Sobremesa*: ${dessert}\n*Total*: R$ ${totalVirgula}\n\n*Nome*: ${nameOrder}\n*Endereço*: ${address}`
+    let message = `Olá, gostaria de fazer o pedido:\n- Prato: ${plate}\n- Bebida: ${drink}\n- Sobremesa: ${dessert}\nTotal: R$ ${total}\n\nNome: ${nameOrder}\nEndereço: ${address}`
 
 
     let encode = encodeURIComponent(message)

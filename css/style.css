@@ -214,6 +214,9 @@ footer h3 {
     word-break: break-word;
 }
 
+.transition {
+    transition: 300ms;
+}
 .green {
     background-color: #32B72F;
 }
