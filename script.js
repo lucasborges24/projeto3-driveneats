@@ -5,9 +5,11 @@ let plate;
 let drink;
 let dessert;
 let total;
+let nameOrder;
+let address;
 
 function borderPlate(element) {
-    
+
     desabilitarPlate();
 
 
@@ -17,16 +19,16 @@ function borderPlate(element) {
         b = Number(1);
     }
 
-    if ((b+c+d >= 3) === true) {
+    if ((b + c + d >= 3) === true) {
         let finish = document.querySelector(".finish")
         finish.classList.add("green")
         document.querySelector("footer h3").innerHTML = "Finalizar Pedido"
     }
-    
+
     element.classList.add("contentjs-plate");
     element.classList.remove("none")
     console.log(b)
-    
+
 }
 
 
@@ -48,7 +50,7 @@ function borderDrink(element) {
         c = Number(1);
     }
 
-    if ((b+c+d >= 3) === true) {
+    if ((b + c + d >= 3) === true) {
         let finish = document.querySelector(".finish")
         finish.classList.add("green")
         document.querySelector("footer h3").innerHTML = "Finalizar Pedido"
@@ -57,7 +59,7 @@ function borderDrink(element) {
     element.classList.add("contentjs-drink");
     element.classList.remove("none")
     console.log(c)
-    
+
 
 }
 
@@ -78,7 +80,7 @@ function borderDessert(element) {
         d = Number(1);
     }
 
-    if ((b+c+d >= 3) === true) {
+    if ((b + c + d >= 3) === true) {
         let finish = document.querySelector(".finish")
         finish.classList.add("green")
         document.querySelector("footer h3").innerHTML = "Finalizar Pedido"
@@ -124,11 +126,14 @@ function confirmOrder() {
         document.querySelector(".order3 h4:last-child").innerHTML = dessertPrice
 
 
-        total = (Number(platePrice.split(" ")[1].replace(",",".")) + Number(drinkPrice.split(" ")[1].replace(",",".")) + Number(dessertPrice.split(" ")[1].replace(",","."))).toFixed(2)
+        total = (Number(platePrice.split(" ")[1].replace(",", ".")) + Number(drinkPrice.split(" ")[1].replace(",", ".")) + Number(dessertPrice.split(" ")[1].replace(",", "."))).toFixed(2)
 
         console.log(total)
-        
-        document.querySelector(".order-total h4:last-child").innerHTML = `R$ ${total.toString().replace(".",",")}`
+
+        document.querySelector(".order-total h4:last-child").innerHTML = `R$ ${total.toString().replace(".", ",")}`
+
+        nameOrder = prompt('Coloque seu nome: ')
+        address = prompt('Coloque seu endereço: ')
     }
 }
 
@@ -138,11 +143,15 @@ function back() {
 }
 
 function whatsApp() {
-    let totalVirgula = total.toString().replace(".",",")
-    let message = `Olá, gostaria de fazer o *pedido*:\n- *Prato*: ${plate}\n- *Bebida*: ${drink}\n- *Sobremesa*: ${dessert}\n*Total*: R$ ${totalVirgula}`
+    let totalVirgula = total.toString().replace(".", ",")
+
+
+
+    let message = `Olá, gostaria de fazer o *pedido*:\n- *Prato*: ${plate}\n- *Bebida*: ${drink}\n- *Sobremesa*: ${dessert}\n*Total*: R$ ${totalVirgula}\n\n*Nome*: ${nameOrder}\n*Endereço*: ${address}`
+
 
     let encode = encodeURIComponent(message)
-    const link = `https://wa.me/+5562981894915?text=${encode}`
+    const link = `https://wa.me/+5562999267474?text=${encode}`
     console.log(encode)
 
 
